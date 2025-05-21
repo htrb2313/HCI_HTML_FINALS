@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ballsy Delight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✅ Banner Image Header -->
+  <header class="banner">
+    <img src="BANNER.png" alt="Ballsy Delight Banner">
+  </header>
+
+  <!-- ✅ Navigation Bar -->
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#cart">Cart</a>
+    <a href="#support">Customer Service</a>
+    <a href="#delivery">Delivery</a>
+  </nav>
+
+  <main>
+      <!-- ✅ MENU SECTION -->
+      <section id="menu" class="menu">
+        <h2 style="text-align:center;">
+          <img src="menu.png" alt="Menu Icon" style="height:310px;">
+        </h2>
+        <div class="item">
+          <img src="carrot-ball.jpg" alt="Ballsy Bites">
+          <h3>Ballsy Bites</h3>
+          <p>₱6.00 each</p>
+          <input type="number" id="qty-bites" min="1" max="20" value="1">
+          <button onclick="addItemWithQty('Ballsy Bites', 6, 'qty-bites')">Add to Cart</button>
+        </div>
+        <div class="item">
+          <img src="fries.jpg" alt="Fries">
+          <h3>Fries</h3>
+          <select id="fries-size">
+            <option value="25">Small – ₱25.00</option>
+            <option value="35">Medium – ₱35.00</option>
+            <option value="50">Large – ₱50.00</option>
+            <option value="70">Extra Large – ₱70.00</option>
+            <option value="85">Extra Extra Large – ₱85.00</option>
+          </select>
+          <button onclick="addFries()">Add to Cart</button>
+        </div>
+        <div class="item">
+          <img src="siomai.jpg" alt="Siomai">
+          <h3>Siomai</h3>
+          <p>₱6.00 each</p>
+          <input type="number" id="qty-siomai" min="1" max="20" value="1">
+          <button onclick="addItemWithQty('Siomai', 6, 'qty-siomai')">Add to Cart</button>
+        </div>
+        <div class="item">
+          <img src="lumpiua.jpg" alt="Lumpia">
+          <h3>Lumpia</h3>
+          <p>₱6.00 each</p>
+          <input type="number" id="qty-lumpia" min="1" max="20" value="1">
+          <button onclick="addItemWithQty('Lumpia', 6, 'qty-lumpia')">Add to Cart</button>
+        </div>
+        <div class="item">
+          <img src="shanghai.jpg" alt="Shanghai">
+          <h3>Shanghai</h3>
+          <p>₱6.00 each</p>
+          <input type="number" id="qty-shanghai" min="1" max="20" value="1">
+          <button onclick="addItemWithQty('Shanghai', 6, 'qty-shanghai')">Add to Cart</button>
+        </div>
+      </section>
+
+      <section id="checkout-details" class="cart">
+        <h2>Checkout Details</h2>
+        <label for="payment-method"><strong>Select Payment Method:</strong></label><br/>
+        <select id="payment-method" required>
+          <option value="GCASH">GCASH</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
+          <option value="Bank Card">Bank Card</option>
+        </select><br/><br/>
+        <label for="address"><strong>Delivery Address:</strong></label><br/>
+        <textarea id="address" rows="3" placeholder="Enter your full delivery address..." required style="width: 100%; padding: 8px;"></textarea><br/><br/>
+        <label for="contact"><strong>Contact Number:</strong></label><br/>
+        <textarea id="contact" rows="1" placeholder="Enter your Contact Number..." required style="width: 100%; padding: 8px;"></textarea><br/><br/>
+        <div id="gcash-qr" style="display: none; margin-top: 15px; text-align: center;">
+          <p><strong>Scan to Pay via GCash:</strong></p>
+          <img src="GCASH.png" alt="GCASH QR Code" style="max-width: 200px;">
+          <p><small>Receiver: <strong>Jed Razon</strong></small></p>
+        </div>
+        <div id="bank-card-fields" style="display: none; margin-top: 15px;">
+          <label for="card-number"><strong>Card Number:</strong></label><br/>
+          <input type="text" id="card-number" maxlength="19" placeholder="1234 5678 9012 3456" style="width:100%; padding: 8px;"><br/><br/>
+          <label for="card-expiry"><strong>Expiry Date:</strong></label><br/>
+          <input type="text" id="card-expiry" maxlength="5" placeholder="MM/YY" style="width:100%; padding: 8px;"><br/><br/>
+          <label for="card-cvv"><strong>CVV:</strong></label><br/>
+          <input type="text" id="card-cvv" maxlength="3" placeholder="123" style="width:100%; padding: 8px;">
+        </div>
+      </section>
+      
+      <!-- ✅ CART SECTION -->
+      <section id="cart" class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total: P<span id="total">0</span></strong></p>
+        <button onclick="checkout()">Checkout</button>
+      </section>
+    
+      <!-- ✅ SUPPORT SECTION -->
+      <section id="support" class="support">
+        <h2>Customer Service</h2>
+        <p>Need help with your order?</p>
+        <button onclick="alert('Redirecting to customer service...')">Report a Problem</button>
+      </section>
+    
+      <!-- ✅ DELIVERY SECTION -->
+      <section id="delivery" class="delivery">
+        <h2>Delivery Info</h2>
+        <p>We deliver anywhere in Bayombong within 30–45 minutes. Delivery is free for orders above P100!</p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
